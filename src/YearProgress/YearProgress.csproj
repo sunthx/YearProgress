@@ -65,12 +65,19 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CircleProgressBar.xaml.cs">
+      <DependentUpon>CircleProgressBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CSDeskBand.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="YearProgressControl.xaml.cs">
       <DependentUpon>YearProgressControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="YearProgressDeskBand.cs" />
+    <Page Include="CircleProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="YearProgressControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
