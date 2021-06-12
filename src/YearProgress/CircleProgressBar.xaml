@@ -7,12 +7,10 @@
              d:DesignHeight="600" d:DesignWidth="600">
     <Grid>
         <Ellipse 
-            Stroke="LightGray"
-            Name="EpTrail"/>
+            Name="Trail"/>
 
         <Path
-            Name="PathStroke"
-            Stroke="DarkSeaGreen"
+            Name="Stroke"
             StrokeEndLineCap="Round"
             StrokeStartLineCap="Round">
             <Path.Data>

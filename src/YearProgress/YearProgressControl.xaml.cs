@@ -27,28 +27,36 @@ namespace YearProgress
             _globalTimer = new Timer(RefreshProgressValue, null, 0, 1000 * 60);
         }
 
-        private int _value;
-        public int Value
-        {
-            get => _value;
-            set
-            {
-                _value = value;
-                OnPropertyChanged();
-            }
-        }
-
         private void RefreshProgressValue(object args)
         {
-            Value = GetYearProgressValue();
+            Dispatcher.Invoke(() =>
+            {
+                var now = DateTime.Now;
+                YearProgressBar.Percent = GetYearProgressValue(now);
+                MonthProgressBar.Percent = GetMonthProgressValue(now);
+                DayProgressBar.Percent = GetDayProgressValue(now);
+            });
         }
 
-        private int GetYearProgressValue()
+        private double GetYearProgressValue(DateTime now)
         {
-            var now = DateTime.Now;
             var totalDaysInYear = DateTime.IsLeapYear(now.Year) ? 366 : 365;
             var dayOfYear = DateTime.Now.DayOfYear;
-            return (int)(dayOfYear * 1.0 / totalDaysInYear * 100);
+            return Math.Round((dayOfYear * 1.0 / totalDaysInYear * 100),1);
+        }
+
+        private double GetMonthProgressValue(DateTime now)
+        {
+            var year = now.Year;
+            var month = now.Month;
+
+            var days = DateTime.DaysInMonth(year, month);
+            return Math.Round((now.Day * 1.0 / days * 100),1);
+        }
+
+        private double GetDayProgressValue(DateTime now)
+        {
+            return Math.Round((now.Ticks * 1.0 / now.Date.AddDays(1).AddSeconds(-1).Ticks * 100), 1);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
