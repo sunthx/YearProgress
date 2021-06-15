@@ -1,16 +1,22 @@
 ﻿<UserControl x:Class="YearProgress.YearProgressControl"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:YearProgress"
-             xmlns:xrpb="http://XamlRadialProgressBar/DotNet"
-             mc:Ignorable="d">
-    <Viewbox>
-        <WrapPanel>
-            <local:CircleProgressBar x:Name="YearProgressBar" Width="40" Height="40"/>
-            <local:CircleProgressBar x:Name="MonthProgressBar" Width="40" Height="40" Margin="20 0 0 0"/>
-            <local:CircleProgressBar x:Name="DayProgressBar" Width="40" Height="40" Margin="20 0 0 0"/>
-        </WrapPanel>
-    </Viewbox>
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                xmlns:local="clr-namespace:YearProgress"
+                xmlns:deskBand="clr-namespace:YearProgress.DeskBand"
+                mc:Ignorable="d">
+    <Grid VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <local:CircleProgressBar Grid.Column="0" x:Name="YearProgressBar" Percent="1"/>
+        <local:CircleProgressBar Grid.Column="2" x:Name="MonthProgressBar" Percent="1"/>
+        <local:CircleProgressBar Grid.Column="4" x:Name="DayProgressBar" Percent="1"/>
+    </Grid>
 </UserControl>

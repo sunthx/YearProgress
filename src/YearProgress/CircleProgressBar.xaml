@@ -3,14 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d"
-             d:DesignHeight="600" d:DesignWidth="600">
+             mc:Ignorable="d">
     <Grid>
-        <Ellipse 
+        <Ellipse  
             Name="Trail"/>
 
         <Path
+            Height="30"
+            Width="30"
             Name="Stroke"
+            Stroke="Aqua"
             StrokeEndLineCap="Round"
             StrokeStartLineCap="Round">
             <Path.Data>

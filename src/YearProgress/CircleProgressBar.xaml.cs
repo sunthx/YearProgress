@@ -10,8 +10,8 @@ namespace YearProgress
     /// </summary>
     public partial class CircleProgressBar : UserControl
     {
-        private double _viewWidth = 40;
-        private double _viewHeight = 40;
+        private double _viewWidth = 30;
+        private double _viewHeight = 30;
 
         private double _radial = 0;
         private double _startPositionX = 0;
@@ -23,12 +23,15 @@ namespace YearProgress
 
         private readonly int _strokeWidth = 8;
 
-        private readonly Brush _defaultTrailColor = Brushes.LightGray;
-        private readonly Brush _defaultStrokeColor = Brushes.Black;
+        private readonly Brush _defaultTrailColor = Brushes.Cornsilk;
+        private readonly Brush _defaultStrokeColor = Brushes.BlueViolet;
 
         public CircleProgressBar()
         {
             InitializeComponent();
+
+            Width = _viewWidth;
+            Height = _viewHeight;
 
             Trail.StrokeThickness = _strokeWidth;
             Trail.Stroke = _defaultTrailColor;

@@ -1,24 +1,25 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
-using YearProgress.Annotations;
+using YearProgress.DeskBand;
+using YearProgress.DeskBand.BandParts;
 
 namespace YearProgress
 {
-    /// <summary>
-    /// Interaction logic for YearProgressControl.xaml
-    /// </summary>
-    public partial class YearProgressControl : UserControl,INotifyPropertyChanged
+    [ComVisible(true)]
+    [Guid("eabd5a5b-4273-4fb8-a851-aa0d4b803534")]
+    [BandRegistration(Name = "YearProgress", ShowDeskBand = true)]
+    public partial class YearProgressControl 
     {
         private Timer _globalTimer;
         public YearProgressControl()
         {
+            // Options.MinHorizontalSize.Width = 140;
+            // Options.MaxVerticalWidth = 30;
+            //
             InitializeComponent();
             DataContext = this;
-
             Loaded += OnLoaded;
         }
 
@@ -57,13 +58,6 @@ namespace YearProgress
         private double GetDayProgressValue(DateTime now)
         {
             return Math.Round((now.Ticks * 1.0 / now.Date.AddDays(1).AddSeconds(-1).Ticks * 100), 1);
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
