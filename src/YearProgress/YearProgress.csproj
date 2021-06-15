@@ -21,7 +21,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;DESKBAND_WPF</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -44,6 +44,9 @@
     <AssemblyOriginatorKeyFile>year_progress_toolbar.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SharpShell, Version=2.7.2.0, Culture=neutral, PublicKeyToken=f14dc899472fe6fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpShell.2.7.2\lib\net40-client\SharpShell.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -63,76 +66,17 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CircleProgressBar.xaml.cs">
-      <DependentUpon>CircleProgressBar.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DeskBand\BandHost.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DeskBand\BandHost.Designer.cs">
-      <DependentUpon>BandHost.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DeskBand\BandOperate.cs" />
-    <Compile Include="DeskBand\BandParts\BandAttributes.cs" />
-    <Compile Include="DeskBand\BandParts\BandCore.cs" />
-    <Compile Include="DeskBand\BandParts\BandEvents.cs" />
-    <Compile Include="DeskBand\BandParts\BandOptions.cs" />
-    <Compile Include="DeskBand\BandParts\BandSize.cs" />
-    <Compile Include="DeskBand\BandParts\Menu\DeskBandMenu.cs" />
-    <Compile Include="DeskBand\BandParts\Menu\DeskBandMenuAction.cs" />
-    <Compile Include="DeskBand\BandParts\Menu\DeskBandMenuItem.cs" />
-    <Compile Include="DeskBand\BandParts\Menu\DeskBandMenuSeparator.cs" />
-    <Compile Include="DeskBand\BandParts\TaskBarInfo.cs" />
-    <Compile Include="DeskBand\ColorExtension.cs" />
-    <Compile Include="DeskBand\IDeskBandCore.cs" />
-    <Compile Include="DeskBand\Introp\COM\IBandSite.cs" />
-    <Compile Include="DeskBand\Introp\COM\ICatRegister.cs" />
-    <Compile Include="DeskBand\Introp\COM\IContextMenu.cs" />
-    <Compile Include="DeskBand\Introp\COM\IContextMenu2.cs" />
-    <Compile Include="DeskBand\Introp\COM\IContextMenu3.cs" />
-    <Compile Include="DeskBand\Introp\COM\IDeskBand.cs" />
-    <Compile Include="DeskBand\Introp\COM\IDeskBand2.cs" />
-    <Compile Include="DeskBand\Introp\COM\IDockingWindow.cs" />
-    <Compile Include="DeskBand\Introp\COM\IInputObject.cs" />
-    <Compile Include="DeskBand\Introp\COM\IInputObjectSite.cs" />
-    <Compile Include="DeskBand\Introp\COM\IObjectWithSite.cs" />
-    <Compile Include="DeskBand\Introp\COM\IOleCommandTarget.cs" />
-    <Compile Include="DeskBand\Introp\COM\IOleWindow.cs" />
-    <Compile Include="DeskBand\Introp\COM\IPersist.cs" />
-    <Compile Include="DeskBand\Introp\COM\IPersistStream.cs" />
-    <Compile Include="DeskBand\Introp\COM\ITrayDeskband.cs" />
-    <Compile Include="DeskBand\Introp\Struct\APPBARDATA.cs" />
-    <Compile Include="DeskBand\Introp\Struct\APPBARMESSAGE.cs" />
-    <Compile Include="DeskBand\Introp\Struct\BANDSITEINFO.cs" />
-    <Compile Include="DeskBand\Introp\Struct\CATEGORYINFO.cs" />
-    <Compile Include="DeskBand\Introp\Struct\CMINVOKECOMMANDINFO.cs" />
-    <Compile Include="DeskBand\Introp\Struct\CMINVOKECOMMANDINFOEX.cs" />
-    <Compile Include="DeskBand\Introp\Struct\COLORREF.cs" />
-    <Compile Include="DeskBand\Introp\Struct\DESKBANDINFO.cs" />
-    <Compile Include="DeskBand\Introp\Struct\HRESULT.cs" />
-    <Compile Include="DeskBand\Introp\Struct\MENUITEMINFO.cs" />
-    <Compile Include="DeskBand\Introp\Struct\MSG.cs" />
-    <Compile Include="DeskBand\Introp\Struct\OLECMD.cs" />
-    <Compile Include="DeskBand\Introp\Struct\OLECMDTEXT.cs" />
-    <Compile Include="DeskBand\Introp\Struct\POINT.cs" />
-    <Compile Include="DeskBand\Introp\Struct\QueryContextMenuFlags.cs" />
-    <Compile Include="DeskBand\Introp\Struct\RECT.cs" />
-    <Compile Include="DeskBand\Introp\Struct\Shell32.cs" />
-    <Compile Include="DeskBand\Introp\Struct\tagDeskBandCID.cs" />
-    <Compile Include="DeskBand\Introp\Struct\User32.cs" />
-    <Compile Include="DeskBand\WPFBandControl.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="YearProgressControl.xaml.cs">
-      <DependentUpon>YearProgressControl.xaml</DependentUpon>
+    <Compile Include="YearProgressControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Page Include="CircleProgressBar.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="YearProgressControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="YearProgressControl.Designer.cs">
+      <DependentUpon>YearProgressControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CircleProgress.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="YearProgressBand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -148,9 +92,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="DeskBand\BandHost.resx">
-      <DependentUpon>BandHost.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -158,6 +99,10 @@
     <Content Include="Install.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="YearProgressControl.resx">
+      <DependentUpon>YearProgressControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -166,9 +111,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="year_progress_toolbar.snk" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="tools\gacutil.exe">
