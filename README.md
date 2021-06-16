@@ -1,11 +1,18 @@
-# Year Progress (Anxious Maker)
+# Year Progress
+> Anxious Maker...
+
+![](images/ss.png)
 
 ## 为啥要写这个玩意
-想知道5刀能买多少行代码，所以就写了这个。
+想知道**5刀**能买多少代码，所以就写了。
 
 ## 试玩
 1. 使用管理员运行 `Install.bat `
 2. 在 工具栏（Toolbars）选中 `Year Progress`
 
-##已知问题
-1. 借助了 `SharpShell` 写了个 `DeskBand`，显示出来后，遇到了**锯齿**的问题，希望有大佬可以解决。
+## 已知问题
+1. 圆形进度条不是很平滑，锯齿感严重，不知道哪位大佬可以解决一下。
+
+## Thanks
+- [Winform](https://github.com/dotnet/winforms)  
+- [Sharpshell](https://github.com/dwmkerr/sharpshell)
