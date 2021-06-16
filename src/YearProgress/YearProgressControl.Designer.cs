@@ -29,31 +29,33 @@ namespace YearProgress
         /// </summary>
         private void InitializeComponent()
         {
-            this.circleProgress1 = new YearProgress.CircleProgress();
-            this.circleProgress2 = new YearProgress.CircleProgress();
+            this.yearCirCleProgress = new YearProgress.CircleProgress();
+            this.dayCirCleProgress = new YearProgress.CircleProgress();
             this.SuspendLayout();
             // 
-            // circleProgress1
+            // yearCirCleProgress
             // 
-            this.circleProgress1.Location = new System.Drawing.Point(0, 0);
-            this.circleProgress1.Maximum = 100D;
-            this.circleProgress1.Minimum = 0D;
-            this.circleProgress1.Name = "circleProgress1";
-            this.circleProgress1.Size = new System.Drawing.Size(30, 30);
-            this.circleProgress1.TabIndex = 0;
-            this.circleProgress1.Text = "yearCircleProgress";
-            this.circleProgress1.Value = 0D;
+            this.yearCirCleProgress.Content = "Y";
+            this.yearCirCleProgress.Location = new System.Drawing.Point(2, 0);
+            this.yearCirCleProgress.Maximum = 100D;
+            this.yearCirCleProgress.Minimum = 0D;
+            this.yearCirCleProgress.Name = "yearCirCleProgress";
+            this.yearCirCleProgress.Size = new System.Drawing.Size(25, 25);
+            this.yearCirCleProgress.TabIndex = 0;
+            this.yearCirCleProgress.Text = "yearCircleProgress";
+            this.yearCirCleProgress.Value = 0D;
             // 
-            // circleProgress2
+            // dayCirCleProgress
             // 
-            this.circleProgress2.Location = new System.Drawing.Point(40, 0);
-            this.circleProgress2.Maximum = 100D;
-            this.circleProgress2.Minimum = 0D;
-            this.circleProgress2.Name = "circleProgress2";
-            this.circleProgress2.Size = new System.Drawing.Size(30, 30);
-            this.circleProgress2.TabIndex = 0;
-            this.circleProgress2.Text = "yearCircleProgress";
-            this.circleProgress2.Value = 0D;
+            this.dayCirCleProgress.Content = "D";
+            this.dayCirCleProgress.Location = new System.Drawing.Point(38, 0);
+            this.dayCirCleProgress.Maximum = 100D;
+            this.dayCirCleProgress.Minimum = 0D;
+            this.dayCirCleProgress.Name = "dayCirCleProgress";
+            this.dayCirCleProgress.Size = new System.Drawing.Size(25, 25);
+            this.dayCirCleProgress.TabIndex = 0;
+            this.dayCirCleProgress.Text = "dayProgressControl";
+            this.dayCirCleProgress.Value = 0D;
             // 
             // YearProgressControl
             // 
@@ -61,17 +63,18 @@ namespace YearProgress
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.Controls.Add(this.circleProgress1);
-            this.Controls.Add(this.circleProgress2);
+            this.Controls.Add(this.yearCirCleProgress);
+            this.Controls.Add(this.dayCirCleProgress);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "YearProgressControl";
-            this.Size = new System.Drawing.Size(87, 33);
+            this.Size = new System.Drawing.Size(73, 28);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private CircleProgress circleProgress1;
-        private CircleProgress circleProgress2;
+        private CircleProgress yearCirCleProgress;
+        private CircleProgress dayCirCleProgress;
     }
 }

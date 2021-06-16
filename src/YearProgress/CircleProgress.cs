@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace YearProgress
@@ -10,18 +11,24 @@ namespace YearProgress
         private const int StrokeThickness = 5;
         private readonly Pen _trailPen;
         private readonly Pen _strokePen;
-        private readonly Brush _trailColor = Brushes.LightGray;
-        private readonly Brush _strokeColor = Brushes.Orange;
         private readonly float _startAngle = -90;
+
+        // Dark
+        // private Brush _trailColor = Brushes.LightGray;
+        // private Brush _strokeColor = Brushes.White;
+
+        private Brush _trailColor = Brushes.LightGray;
+        private Brush _strokeColor = Brushes.Orange;
 
         private double _minimum = 0;
         private double _maximum = 100;
         private double _value = 0;
+        private string _content;
 
         public CircleProgress()
         {
-            _trailPen = new Pen(_trailColor, StrokeThickness);
-            _strokePen = new Pen(_strokeColor, StrokeThickness)
+            _trailPen = new Pen(TrailColor, StrokeThickness);
+            _strokePen = new Pen(StrokeColor, StrokeThickness)
             {
                 StartCap = LineCap.Round, 
                 EndCap = LineCap.Round
@@ -31,6 +38,29 @@ namespace YearProgress
             {
                 Invalidate();
             };
+        }
+
+        public Brush TrailColor
+        {
+            get => _trailColor;
+            set
+            {
+                _trailColor = value;
+                _trailPen.Brush = _trailColor;
+
+                Invalidate();
+            }
+        }
+
+        public Brush StrokeColor
+        {
+            get => _strokeColor;
+            set
+            {
+                _strokeColor = value;
+                _strokePen.Brush = _strokeColor;
+                Invalidate();
+            }
         }
 
         public double Minimum
@@ -47,6 +77,7 @@ namespace YearProgress
                 Invalidate();
             }
         }
+
         public double Maximum
         {
             get => _maximum;
@@ -61,6 +92,7 @@ namespace YearProgress
                 Invalidate();
             }
         }
+
         public double Value
         {
             get => _value;
@@ -71,6 +103,16 @@ namespace YearProgress
                     return;
                 }
                 _value = value;
+                Invalidate();
+            }
+        }
+
+        public string Content
+        {
+            get => _content;
+            set
+            {
+                _content = value;
                 Invalidate();
             }
         }
@@ -86,8 +128,9 @@ namespace YearProgress
                 return;
 
             g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.TextRenderingHint = TextRenderingHint.AntiAlias;
 
-            int size = Math.Min(Width, Height);
+            var size = Math.Min(Width, Height);
             var leftStartPoint = new Point
             {
                 Y = StrokeThickness / 2, 
@@ -101,6 +144,13 @@ namespace YearProgress
 
             g.DrawArc(_trailPen, rectangle, 0, 360);
             g.DrawArc(_strokePen, rectangle, _startAngle, angle);
+
+            g.DrawString(
+                _content, 
+                new Font(new FontFamily("Microsoft YaHei"),6,FontStyle.Bold),
+                _strokeColor, 
+                rectangle.X + StrokeThickness * 5 / 4,
+                rectangle.Y + StrokeThickness);
         }
     }
 }
