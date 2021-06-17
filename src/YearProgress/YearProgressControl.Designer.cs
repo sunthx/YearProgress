@@ -59,15 +59,16 @@ namespace YearProgress
             // 
             // YearProgressControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.yearCirCleProgress);
             this.Controls.Add(this.dayCirCleProgress);
             this.Margin = new System.Windows.Forms.Padding(0);
+            this.MaximumSize = new System.Drawing.Size(68, 28);
             this.Name = "YearProgressControl";
-            this.Size = new System.Drawing.Size(73, 28);
+            this.Size = new System.Drawing.Size(68, 28);
             this.ResumeLayout(false);
 
         }
