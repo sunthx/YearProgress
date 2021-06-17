@@ -23,7 +23,9 @@ namespace YearProgress
                 ShowTitle = true,
                 Title = "Year Progress",
                 UseBackgroundColour = false,
-                AlwaysShowGripper = false
+                AlwaysShowGripper = false,
+                IsFixed = true,
+                HasNoMargins = true
             };
         }
     }
