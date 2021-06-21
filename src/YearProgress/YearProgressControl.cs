@@ -68,6 +68,7 @@ namespace YearProgress
         private void Loaded(object sender, EventArgs args)
         {
             ChangeStrokeColor();
+            UpdateProgressControl();
             StartTimer();
 
             yearCirCleProgress.Tag = "Year:";
@@ -98,13 +99,12 @@ namespace YearProgress
 
         private void TimerOnTick(object sender, EventArgs e)
         {
-            var now = DateTime.Now;
-
-            UpdateProgressControl(now);
+            UpdateProgressControl();
         }
 
-        private void UpdateProgressControl(DateTime now)
+        private void UpdateProgressControl()
         {
+            var now = DateTime.Now;
             if ((now - _startRunningTime).TotalHours >= 1)
             {
                 _startRunningTime = now;
